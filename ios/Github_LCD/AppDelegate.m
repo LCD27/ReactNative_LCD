@@ -15,9 +15,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
+#if DEBUG
+  /** 用于真机debug时候的调试*/
+  [[RCTBundleURLProvider sharedSettings] setJsLocation:@"192.168.0.107"];
+#endif
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Github_LCD"
                                                initialProperties:nil

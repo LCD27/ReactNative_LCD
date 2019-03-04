@@ -9,14 +9,21 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import Button from './js/common/Button'
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  _onClick = ()=>{
+    console.warn('onclick')
+  }
+
   render() {
+    const MyButton = Button.getButton;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <View style={{marginTop:20,}}/>
+        <MyButton name={'react-navigation'} onClick = {this._onClick}/>
       </View>
     );
   }
@@ -25,18 +32,6 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
