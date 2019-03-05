@@ -8,30 +8,15 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import Button from './js/common/Button'
-
+import AppNavigators from './practises/first-day/navigators/AppNavigators'
 type Props = {};
 export default class App extends Component<Props> {
 
-  _onClick = ()=>{
-    console.warn('onclick')
-  }
-
   render() {
-    const MyButton = Button.getButton;
+    // console.warn(this.props.navigation)
     return (
-      <View style={styles.container}>
-        <View style={{marginTop:20,}}/>
-        <MyButton name={'react-navigation'} onClick = {this._onClick}/>
-      </View>
+     <AppNavigators/>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-});

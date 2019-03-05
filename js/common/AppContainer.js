@@ -3,21 +3,17 @@ import {
     StyleSheet,
     View,
     Platform,
+    SafeAreaView
 } from 'react-native'
 export default class AppContainer extends Component{
   props:{
       style?:Object,
   }
 
-
   render(){
-    // console.warn(this.props.style)
-    return <View style={styles.container}>
-      <View style={styles.top}/>
-      <View style={this.props.style === undefined ? styles.container : this.props.style}>
-        {this.props.children}
-      </View>
-    </View>
+    return  <SafeAreaView style={this.props.style === undefined ? styles.container : this.props.style}>
+      {this.props.children}
+    </SafeAreaView>
   }
 }
 

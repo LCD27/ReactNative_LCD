@@ -11,15 +11,20 @@ import {
   AppContainer,
   Button,
 } from '../../../js/common'
+import NavigationUtil from "../navigators/NavigationUtil";
 export default class PopularPage extends Component{
 
   _onClick = ()=>{
-    Toast.show('TopTab')
+    this.props.navigation.navigate('MaterialTopTabNavigator')
   }
 
 
   render(){
     const MyButton = Button.getButton;
+    console.warn(this.props)
+    if(!NavigationUtil.navigation){
+      NavigationUtil.navigation=this.props.navigation
+    }
     return <AppContainer style={styles.container}>
       <MyButton name={'TopTab'} onClick = {this._onClick}/>
     </AppContainer>

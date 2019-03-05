@@ -14,14 +14,16 @@ import {
 export default class FavoritePage extends Component{
 
   _onClick = ()=>{
-    Toast.show('TopTab')
+    // NavigationUtil.navigate('MyPage')
+    this.props.navigation.navigate('HomePage')
   }
 
 
   render(){
     const MyButton = Button.getButton;
+    console.warn(this.props.navigation)
     return <AppContainer style={styles.container}>
-      <MyButton name={'TopTab'} onClick = {this._onClick}/>
+      <MyButton name={'aaa'} onClick = {this._onClick}/>
     </AppContainer>
   }
 }

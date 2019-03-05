@@ -9,6 +9,7 @@ import {
 } from '../../../js/common'
 export default class MyPage extends Component{
   render(){
+    console.warn(this.props.navigation)
     return <AppContainer style={styles.container}>
       <Text>FavoritePage</Text>
     </AppContainer>
