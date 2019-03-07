@@ -10,20 +10,23 @@ import Toast from 'react-native-root-toast'
 import {
   AppContainer,
   Button,
-} from '../../../js/common'
-export default class FavoritePage extends Component{
+} from '../common'
+import NavigationUtil from "../navigators/NavigationUtil";
+export default class PopularPage extends Component{
 
   _onClick = ()=>{
-    // NavigationUtil.navigate('MyPage')
-    this.props.navigation.navigate('HomePage')
+    this.props.navigation.navigate('MaterialTopTabNavigator')
   }
 
 
   render(){
     const MyButton = Button.getButton;
-    console.warn(this.props.navigation)
+    // console.warn(this.props)
+    if(!NavigationUtil.navigation){
+      NavigationUtil.navigation=this.props.navigation
+    }
     return <AppContainer style={styles.container}>
-      <MyButton name={'aaa'} onClick = {this._onClick}/>
+      <MyButton name={'TopTab'} onClick = {this._onClick}/>
     </AppContainer>
   }
 }
@@ -32,7 +35,6 @@ export default class FavoritePage extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
     backgroundColor: '#F5FCFF',
   },
 })

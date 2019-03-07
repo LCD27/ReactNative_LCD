@@ -6,9 +6,7 @@ import {
 } from 'react-native'
 import {
   AppContainer
-} from '../../../js/common'
-
-import {MaterialTopTabNavigator} from '../navigators/AppNavigators'
+} from '../common'
 
 export default class HomePage extends Component{
   render(){

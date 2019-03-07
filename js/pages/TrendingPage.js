@@ -7,7 +7,7 @@ import {
 import {
   AppContainer,
     Button
-} from '../../../js/common'
+} from '../common'
 export default class TrendingPage extends Component{
 
   _onClick = ()=>{
@@ -15,7 +15,7 @@ export default class TrendingPage extends Component{
   }
 
   render(){
-    console.warn(this.props.navigation)
+    // console.warn(this.props.navigation)
     const MyButton = Button.getButton
     return <AppContainer style={styles.container}>
       <MyButton name={'DrawNavigation'} onClick = {this._onClick}/>

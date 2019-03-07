@@ -1,10 +1,12 @@
 import React,{Component} from 'react'
 import {
-    createAppContainer,
-    createBottomTabNavigator,
-    createStackNavigator,
-    createDrawerNavigator,
-    createMaterialTopTabNavigator,
+  createAppContainer,
+  createBottomTabNavigator,
+  createStackNavigator,
+  createDrawerNavigator,
+  createMaterialTopTabNavigator,
+  createSwitchNavigator,
+
 } from 'react-navigation'
 import{
   Dimensions
@@ -13,11 +15,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo';
 import {
-  TrendingPage,
-  MyPage,
-  FavoritePage,
-  PopularPage,
+    TrendingPage,
+    MyPage,
+    FavoritePage,
+    PopularPage,
     HomePage,
+    WelcomePage,
 } from '../pages'
 
 const imageSize = 26
@@ -47,9 +50,9 @@ const BottomTabNavigator = createBottomTabNavigator({
       tabBarLabel:'最热',
       tabBarIcon:({focused,horizontal,tintColor})=>{
         return <MaterialIcons
-          name={'whatshot'}
-          size = {imageSize}
-          style={{color:tintColor}}
+            name={'whatshot'}
+            size = {imageSize}
+            style={{color:tintColor}}
         />
       }
     }
@@ -153,7 +156,11 @@ const StackNavigator = createStackNavigator({
   }
 })
 
+const SwitchNavigator = createSwitchNavigator({
+  WelcomePage:WelcomePage,
+  Main:StackNavigator,
+})
 
-const AppNavigators = createAppContainer(StackNavigator)
+const AppNavigators = createAppContainer(SwitchNavigator)
 
 export default AppNavigators

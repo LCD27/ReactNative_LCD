@@ -8,7 +8,7 @@
  */
 
 import React, {Component} from 'react';
-import AppNavigators from './practises/first-day/navigators/AppNavigators'
+import AppNavigators from './js/navigators/AppNavigators'
 type Props = {};
 export default class App extends Component<Props> {
 
