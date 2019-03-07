@@ -1,30 +1,62 @@
 import React,{Component} from 'react'
+import Button from "../common/Button";
+
 import {
-  Text,
-  View,
-  StyleSheet,
+    Text,
+    View,
     Animated,
-  Easing,
-    Platform,
-  ScrollView
-} from 'react-native'
-import {
-  AppContainer,
-    Button
-} from '../common'
+} from "react-native"
+/**
+ * 针对Animated的练习
+ * https://www.jianshu.com/p/7fd37d8ed138
+ * https://blog.csdn.net/teagreen_red/article/details/79617606
+ * https://reactnative.cn/docs/animations/  react-native 中文网
+ *
+ * */
 
+/**
+ *
+ * 改变透明度
+ *
+ * */
 
-
-
-export default class MyPage extends Component{
-  constructor(props){
-    super(props)
-    this.state={
-      animatedValue:new Animated.Value(0),
-      // translateValue: new Animated.ValueXY({x:0, y:0}), // 二维坐标
-      translateValue: new Animated.Value(0),
-    }
+class FadeInView extends React.Component {
+  state = {
+    fadeAnim: new Animated.Value(0),  // 透明度初始值设为0
   }
+
+  componentDidMount() {
+    Animated.timing(                  // 随时间变化而执行动画
+        this.state.fadeAnim,            // 动画中的变量值
+        {
+          toValue: 1,                   // 透明度最终变为1，即完全不透明
+          duration: 10000,              // 让动画持续一段时间
+        }
+    ).start();                        // 开始执行动画
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+        <Animated.View                 // 使用专门的可动画化的View组件
+            style={{
+              ...this.props.style,
+              opacity: fadeAnim,         // *********************** 将透明度指定为动画变量值 *********
+            }}
+        >
+          {this.props.children}
+        </Animated.View>
+    );
+  }
+}
+
+export default class LCDAnimated extends Component{
+
+  state = {
+    animatedValue: new Animated.Value(0),
+  }
+
   _onClick = ()=>{
     // let animated = this.state.fadeAnim
     // animated.setValue(0)
@@ -56,7 +88,7 @@ export default class MyPage extends Component{
       toValue: 1,
       duration:3000,
       // easing:Easing.exp(300),
-    }).start()
+    }).start(()=>this._onClick())
 
     // let animated = this.state.animatedValue
     // animated.setValue(0)
@@ -68,8 +100,13 @@ export default class MyPage extends Component{
 
   }
 
-
   render(){
+    /**
+     * interpolate 插值，比如起始值为0~1
+     *         输入值为（inputRange）：[0, 1]
+     *         输出值为（outRange）:['0deg', '360deg']
+     *         当作用到rotateZ时，代表该view旋转360°
+     * */
     const rotateZ = this.state.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg']
@@ -96,7 +133,7 @@ export default class MyPage extends Component{
     });
     // console.warn(this.props.navigation)
     const MyButton = Button.getButton;
-    return <AppContainer style={styles.container}>
+    return <View style={{flex:1,}}>
       <MyButton name={'animated'} onClick = {this._onClick}/>
       <Animated.View style={{
         marginTop: 10,
@@ -105,7 +142,7 @@ export default class MyPage extends Component{
         justifyContent:"center",
         alignSelf:"center",
         transform: [
-      {rotateZ:rotateZ},
+          {rotateZ:rotateZ},
         ]
       }}>
         <Text style={[{textAlign: 'center'}]}>Hello World!</Text>
@@ -145,42 +182,12 @@ export default class MyPage extends Component{
             transform:[
               {translateX: this.state.animatedValue.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, 150]
+                  outputRange: [10, 150]
                 })}, // x轴移动
             ]
           }}
       />
 
-    </AppContainer>
+    </View>
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-  content: {
-    backgroundColor: 'rgba(200, 230, 255, 0.8)',
-    marginBottom:10,
-    justifyContent:"center",
-    alignSelf:"center",
-  },
-  button: Platform.select({
-    ios: {},
-    android: {
-      elevation: 4,
-      // Material design blue from https://material.google.com/style/color.html#color-color-palette
-      backgroundColor: '#2196F3',
-      borderRadius: 2,
-      width:100,
-      height:30,
-    },
-    justifyContent:"center",
-    alignSelf:"center",
-  }),
-  buttonText: {
-    alignSelf:"center",
-  }
-})

@@ -11,9 +11,10 @@ import {
 import{
   Dimensions
 } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons' // https://oblador.github.io/react-native-vector-icons/
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {
     TrendingPage,
     MyPage,
@@ -21,21 +22,17 @@ import {
     PopularPage,
     HomePage,
     WelcomePage,
+    PractisePage,
 } from '../pages'
+import {
+  BottomTabData,
+  MaterialTopTabData,
+  DrawerData,
+  StackData,
+}from '../data'
 
-const imageSize = 26
 
-const MaterialTopTabNavigator = createMaterialTopTabNavigator({
-  HomePage:{
-    screen:HomePage,
-  },
-  TrendingPage:{
-    screen:TrendingPage,
-  },
-  FavoritePage:{
-    screen:FavoritePage,
-  },
-},{
+const MaterialTopTabNavigator = createMaterialTopTabNavigator({...MaterialTopTabData},{
   initialRouteName:'HomePage',
   swipeEnabled:true,
   animationEnabled:true,
@@ -43,86 +40,12 @@ const MaterialTopTabNavigator = createMaterialTopTabNavigator({
   // tabBarPosition:'bottom'
 })
 
-const BottomTabNavigator = createBottomTabNavigator({
-  PopularPage:{
-    screen:PopularPage,
-    navigationOptions:{
-      tabBarLabel:'最热',
-      tabBarIcon:({focused,horizontal,tintColor})=>{
-        return <MaterialIcons
-            name={'whatshot'}
-            size = {imageSize}
-            style={{color:tintColor}}
-        />
-      }
-    }
-  },
-  TrendingPage:{
-    screen:TrendingPage,
-    navigationOptions: {
-      tabBarLabel: '趋势',
-      tabBarIcon: ({tintColor, focused}) => (
-          <Ionicons
-              name={'md-trending-up'}
-              size={imageSize}
-              style={{color: tintColor}}
-          />
-      ),
-    }
-  },
-  FavoritePage:{
-    screen:FavoritePage,
-    navigationOptions: {
-      tabBarLabel: '收藏',
-      tabBarIcon: ({tintColor, focused}) => (
-          <MaterialIcons
-              name={'favorite'}
-              size={imageSize}
-              style={{color: tintColor}}
-          />
-      ),
-    }
-  },
-  MyPage:{
-    screen:MyPage,
-    navigationOptions: {
-      tabBarLabel: '我的',
-      tabBarIcon: ({tintColor, focused}) => (
-          <Entypo
-              name={'user'}
-              size={imageSize}
-              style={{color: tintColor}}
-          />
-      ),
-    }
-  },
-  // MaterialTopTabNavigator:{
-  //   screen:MaterialTopTabNavigator,
-  //   navigationOptions: {
-  //     tabBarLabel: 'Top',
-  //     tabBarIcon: ({tintColor, focused}) => (
-  //         <Entypo
-  //             name={'user'}
-  //             size={imageSize}
-  //             style={{color: tintColor}}
-  //         />
-  //     ),
-  //   }
-  // }
+const BottomTabNavigator = createBottomTabNavigator({...BottomTabData},{
+  initialRouteName:'PractisePage'
 })
 
 
-const DrawerNavigator = createDrawerNavigator({
-  HomePage:{
-    screen:HomePage,
-  },
-  TrendingPage:{
-    screen:TrendingPage,
-  },
-  FavoritePage:{
-    screen:FavoritePage,
-  },
-},{
+const DrawerNavigator = createDrawerNavigator(DrawerData,{
   drawerWidth:Dimensions.get('window').width*0.8,
   drawerPosition:'left',
   drawerBackgroundColor:'blue',
@@ -130,25 +53,16 @@ const DrawerNavigator = createDrawerNavigator({
 })
 
 const StackNavigator = createStackNavigator({
-  HomePage:{
-    screen:HomePage,
-  },
-  TrendingPage:{
-    screen:TrendingPage,
-  },
-  FavoritePage:{
-    screen:FavoritePage,
-  },
+    ...StackData,
   BottomTabNavigator:{
     screen:BottomTabNavigator,
   },
   MaterialTopTabNavigator:{
-    screen:MaterialTopTabNavigator
+    screen:MaterialTopTabNavigator,
   },
   DrawerNavigator:{
-    screen:DrawerNavigator
-  }
-
+    screen:DrawerNavigator,
+  },
 },{
   initialRouteName:'BottomTabNavigator',
   defaultNavigationOptions:{
@@ -159,6 +73,10 @@ const StackNavigator = createStackNavigator({
 const SwitchNavigator = createSwitchNavigator({
   WelcomePage:WelcomePage,
   Main:StackNavigator,
+},{
+  defaultNavigationOptions: {
+    header: null,
+  }
 })
 
 const AppNavigators = createAppContainer(SwitchNavigator)

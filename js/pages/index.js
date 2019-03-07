@@ -4,6 +4,7 @@ import FavoritePage from './FavoritePage'
 import MyPage from './MyPage'
 import TrendingPage from './TrendingPage'
 import WelcomePage from './WelcomePage'
+import PractisePage from './PractisePage'
 export {
   HomePage,
   TrendingPage,
@@ -11,4 +12,5 @@ export {
   FavoritePage,
   PopularPage,
   WelcomePage,
+  PractisePage,
 }
