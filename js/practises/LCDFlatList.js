@@ -4,7 +4,7 @@ import{
     View,
     Text,
 } from 'react-native'
-const data=[{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"}]
+const data=[{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"}]
 export default class LCDFlatList extends React.Component{
   // state={
   //   data:data
@@ -19,11 +19,13 @@ export default class LCDFlatList extends React.Component{
   _keyExtractor=(item,index)=>{
     return 'id-'+index
 }
-
+  _onItemPress = ()=>{
+    console.warn('index:')
+  }
   _renderItem=info=>{
     if(info){
       return <View style={{width:'100%',height:50,backgroundColor:'#c0c0c0'}}>
-        <Text>{info.item.a}</Text>
+        <Text style={{width:'100%',height:50}} onPress={this._onItemPress}>{info.item.a}</Text>
       </View>
     }
     return null

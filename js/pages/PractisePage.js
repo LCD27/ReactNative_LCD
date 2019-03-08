@@ -19,6 +19,9 @@ import{
   LCDAnimatedScrollDemo,
   LCDAnimatedGesture,
   LCDFlatList,
+  LCDGesture,
+  LCDGesture2,
+  LCDGesture3,
 } from '../practises'
 
 export default class PractisePage extends Component{
@@ -38,7 +41,11 @@ export default class PractisePage extends Component{
      {/*<LCDAnimated/>*/}
      {/*<LCDAnimatedScrollDemo/>*/}
      {/*<LCDAnimatedGesture/>*/}
-     <LCDFlatList/>
+     {/*<LCDFlatList/>*/}
+     {/*<LCDGesture/>*/}
+     {/*<LCDGesture2/>*/}
+     <View style={{height:30,width: '100%'}}/>
+     <LCDGesture3/>
     </AppContainer>
   }
 }

@@ -81,19 +81,6 @@ export const BottomTabData={
       ),
     }
   },
-  // MaterialTopTabNavigator:{
-  //   screen:MaterialTopTabNavigator,
-  //   navigationOptions: {
-  //     tabBarLabel: 'Top',
-  //     tabBarIcon: ({tintColor, focused}) => (
-  //         <Entypo
-  //             name={'user'}
-  //             size={imageSize}
-  //             style={{color: tintColor}}
-  //         />
-  //     ),
-  //   }
-  // }
 }
 
 export const MaterialTopTabData={
