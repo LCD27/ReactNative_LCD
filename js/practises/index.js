@@ -5,6 +5,7 @@ import LCDFlatList from './LCDFlatList'
 import LCDGesture from './LCDGesture'
 import LCDGesture2 from './LCDGesture2'
 import LCDGesture3 from './LCDGesture3'
+import LCDNativeView from "./LCDNativeView";
 export {
   LCDAnimated,
   LCDAnimatedScrollDemo,
@@ -13,4 +14,5 @@ export {
   LCDGesture,
   LCDGesture2,
   LCDGesture3,
+  LCDNativeView,
 }

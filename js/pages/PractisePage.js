@@ -22,7 +22,10 @@ import{
   LCDGesture,
   LCDGesture2,
   LCDGesture3,
+  LCDNativeView,
 } from '../practises'
+
+
 
 export default class PractisePage extends Component{
   constructor(props){
@@ -44,8 +47,9 @@ export default class PractisePage extends Component{
      {/*<LCDFlatList/>*/}
      {/*<LCDGesture/>*/}
      {/*<LCDGesture2/>*/}
-     <View style={{height:30,width: '100%'}}/>
-     <LCDGesture3/>
+     <View style={{height:30,width: '100%',backgroundColor:'red'}}/>
+     {/*<LCDGesture3/>*/}
+     <LCDNativeView style={{flex:1,backgroundColor:'#dff'}}/>
     </AppContainer>
   }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006B84B122339B7F00DC0B42 /* NativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B84B022339B7F00DC0B42 /* NativeView.m */; };
+		006B84E02233A2C200DC0B42 /* RNTNativeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B84DF2233A2C200DC0B42 /* RNTNativeViewManager.m */; };
 		00AEBFB52230FFED00926544 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FBFAF222D1B9F000EC918 /* libRNVectorIcons.a */; };
 		00AEBFB62230FFFD00926544 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007FBF76222D1368000EC918 /* libRNGestureHandler.a */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
@@ -336,6 +338,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		006B84AF22339B7F00DC0B42 /* NativeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeView.h; sourceTree = "<group>"; };
+		006B84B022339B7F00DC0B42 /* NativeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeView.m; sourceTree = "<group>"; };
+		006B84DE2233A2C200DC0B42 /* RNTNativeViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTNativeViewManager.h; sourceTree = "<group>"; };
+		006B84DF2233A2C200DC0B42 /* RNTNativeViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTNativeViewManager.m; sourceTree = "<group>"; };
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
@@ -417,6 +423,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		006B84DC2233A24F00DC0B42 /* NativeView */ = {
+			isa = PBXGroup;
+			children = (
+				006B84AF22339B7F00DC0B42 /* NativeView.h */,
+				006B84B022339B7F00DC0B42 /* NativeView.m */,
+			);
+			path = NativeView;
+			sourceTree = "<group>";
+		};
+		006B84DD2233A25B00DC0B42 /* BridgeNaviteView */ = {
+			isa = PBXGroup;
+			children = (
+				006B84DE2233A2C200DC0B42 /* RNTNativeViewManager.h */,
+				006B84DF2233A2C200DC0B42 /* RNTNativeViewManager.m */,
+			);
+			path = BridgeNaviteView;
+			sourceTree = "<group>";
+		};
 		007FBF4C222D1367000EC918 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +549,8 @@
 		13B07FAE1A68108700A75B9A /* Github_LCD */ = {
 			isa = PBXGroup;
 			children = (
+				006B84DD2233A25B00DC0B42 /* BridgeNaviteView */,
+				006B84DC2233A24F00DC0B42 /* NativeView */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1155,7 +1181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006B84B122339B7F00DC0B42 /* NativeView.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				006B84E02233A2C200DC0B42 /* RNTNativeViewManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
