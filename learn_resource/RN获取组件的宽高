@@ -1,0 +1,43 @@
+url : https://blog.csdn.net/sinat_17775997/article/details/82738199
+
+react-native 获取组件的尺寸有两种方式
+
+第一种方式使用元素自身的onLayout属性去获取，但是这种方式有一个局限性，
+    就是只有在初次渲染的时候才会触发这个函数，而且此种方法获取的是组件相对于父组件的位置坐标。
+
+第二种方式，使用react-native中的findNodeHandle和UIManager来获取组件的尺寸：
+
+import {
+    findNodeHandle,
+    UIManager
+} from 'react-native';
+
+layout(ref) {
+        const handle = findNodeHandle(ref);
+
+        return new Promise((resolve) => {
+            UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
+                resolve({
+                    x,
+                    y,
+                    width,
+                    height,
+                    pageX,
+                    pageY
+                });
+            });
+        });
+
+}
+
+这里我们声明了一个名叫layout的函数，当我们需要获取组件的宽度和高度或者位置信息时,
+    就可以通过调用这个函数去获取。我们可以看到layout这个函数接受一个ref参数，这个参数表示组件的实例，
+    传入组件的实例后，然后通过findNodeHandle方法获取组件节点。
+
+UIManager.measure接受两个参数，第一个参数是通过findNodeHandle获取的组件节点，
+    第二个参数是获取成功的回调，回调有6个参数：
+        x，y表示组件的相对位置，
+        width，height表示组件的宽度和高度，
+        pageX，pageY表示组件相对于屏幕的绝对位置。
+
+

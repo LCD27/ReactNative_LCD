@@ -38,7 +38,7 @@ class FavoritePage extends Component{
 }
 
 const mapStateToProps = state =>({
-  test:state.test
+  test:state.test2
 })
 
 const mapDispatchToProps = dispatch => {
@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => {
     changTest: test => dispatch(testAction(test))
   }
 }
-
+/**当不添加mapStateToProps时，不会更新当前的容器组件*/
 export default connect(mapStateToProps,mapDispatchToProps)(FavoritePage)
 
 

@@ -1,0 +1,24 @@
+url :https://segmentfault.com/a/1190000010676878
+
+Immutable 的几种数据类型
+    List: 有序索引集，类似JavaScript中的Array。
+    Map: 无序索引集，类似JavaScript中的Object。
+    OrderedMap: 有序的Map，根据数据的set()进行排序。
+    Set: 没有重复值的集合。
+    OrderedSet: 有序的Set，根据数据的add进行排序。
+    Stack: 有序集合，支持使用unshift（）和shift（）添加和删除。
+    Range(): 返回一个Seq.Indexed类型的集合，这个方法有三个参数，start表示开始值，默认值为0，end表示结束值，默认为无穷大，step代表每次增大的数值，默认为1.如果start = end,则返回空集合。
+    Repeat(): 返回一个vSeq.Indexe类型的集合，这个方法有两个参数，value代表需要重复的值，times代表要重复的次数，默认为无穷大。
+    Record: 一个用于生成Record实例的类。类似于JavaScript的Object，但是只接收特定字符串为key，具有默认值。
+    Seq: 序列，但是可能不能由具体的数据结构支持。
+    Collection: 是构建所有数据结构的基类，不可以直接构建。
+
+API的使用
+    1.fromJS()
+    作用：将一个js数据转换为Immutable类型的数据。
+    用法：fromJS(value, converter)
+    简介：value是要转变的数据，converter是要做的操作。
+            第二个参数可不填，默认情况会将数组准换为List类型，将对象转换为Map类型，其余不做操作。
+    2.toJS()
+    作用：将一个Immutable数据转换为JS类型的数据。
+    用法：value.toJS()

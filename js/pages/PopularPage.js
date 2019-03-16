@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-  test:state.test
+  test:state.test2
 })
 
 const mapDispatchToProps = dispatch =>({

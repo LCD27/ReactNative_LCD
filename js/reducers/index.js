@@ -13,5 +13,5 @@ import {
 } from './test'
 
 export default combineReducers({
-  test
+  test2:test
 })
