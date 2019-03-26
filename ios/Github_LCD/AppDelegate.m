@@ -17,7 +17,7 @@
   NSURL *jsCodeLocation;
 #if DEBUG
   /** 用于真机debug时候的调试*/
-  [[RCTBundleURLProvider sharedSettings] setJsLocation:@"10.10.2.72"];
+  [[RCTBundleURLProvider sharedSettings] setJsLocation:@"192.168.2.178"];
 #endif
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
