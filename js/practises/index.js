@@ -6,6 +6,11 @@ import LCDGesture from './LCDGesture'
 import LCDGesture2 from './LCDGesture2'
 import LCDGesture3 from './LCDGesture3'
 import LCDNativeView from "./LCDNativeView";
+
+import {
+  MarqueeText
+} from './view'
+
 export {
   LCDAnimated,
   LCDAnimatedScrollDemo,
@@ -15,4 +20,7 @@ export {
   LCDGesture2,
   LCDGesture3,
   LCDNativeView,
+
+  MarqueeText,
+
 }

@@ -1,31 +1,29 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 import {
   Text,
   View,
   StyleSheet,
-    Animated,
+  Animated,
   Easing,
-    Platform,
-  ScrollView
+  Platform,
+  ScrollView,
+
 } from 'react-native'
 import {
   AppContainer,
-    Button
+  Button,
+  Utils
 } from '../common'
-
-
-
-
-export default class MyPage extends Component{
-  constructor(props){
+export default class MyPage extends Component {
+  constructor(props) {
     super(props)
-    this.state={
-      animatedValue:new Animated.Value(0),
+    this.state = {
+      animatedValue: new Animated.Value(0),
       // translateValue: new Animated.ValueXY({x:0, y:0}), // 二维坐标
       translateValue: new Animated.Value(0),
     }
   }
-  _onClick = ()=>{
+  _onClick = () => {
     // let animated = this.state.fadeAnim
     // animated.setValue(0)
     // Animated.timing(animated,{
@@ -52,9 +50,9 @@ export default class MyPage extends Component{
 
     let animated = this.state.animatedValue
     animated.setValue(0)
-    Animated.timing(animated,{
+    Animated.timing(animated, {
       toValue: 1,
-      duration:3000,
+      duration: 1000,
       // easing:Easing.exp(300),
     }).start()
 
@@ -69,7 +67,8 @@ export default class MyPage extends Component{
   }
 
 
-  render(){
+  render() {
+    console.warn(Utils.screenwidth);
     const rotateZ = this.state.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg']
@@ -82,13 +81,18 @@ export default class MyPage extends Component{
 
     const rotateX = this.state.animatedValue.interpolate({
       inputRange: [0, 0.5,],
-      outputRange: ['0deg', '180deg', ]
+      outputRange: ['0deg', '180deg',]
     });
 
     const textSize = this.state.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [50, 32, 18]
     });
+
+    const transformX = this.state.animatedValue.interpolate({
+      inputRange: [0, 0.5,1],
+      outputRange: [0, 100,400]
+    })
 
     const marginLeft = this.state.animatedValue.interpolate({
       inputRange: [0, 1],
@@ -97,58 +101,60 @@ export default class MyPage extends Component{
     // console.warn(this.props.navigation)
     const MyButton = Button.getButton;
     return <AppContainer style={styles.container}>
-      <Button textName={'animated'} onClick = {this._onClick}/>
+      <Button textName={'animated'} onClick={this._onClick} />
       <Animated.View style={{
         marginTop: 10,
         width: 100,
         height: 100,
-        justifyContent:"center",
-        alignSelf:"center",
+        // justifyContent:"center",
+        // alignSelf:"center",
         transform: [
-      {rotateZ:rotateZ},
+          { translateX: transformX },
         ]
       }}>
-        <Text style={[{textAlign: 'center'}]}>Hello World!</Text>
+        <Text style={[{ textAlign: 'center' }]} numberOfLines={1}>Hello World!ahdskhkalfhdshfkashf</Text>
       </Animated.View>
       <Animated.Text
-          style={{
-            marginTop: 10,
-            width:100,
-            fontSize: 18,
-            color: 'white',
-            backgroundColor:'red',
-            transform: [
-              {rotateX:rotateX},
-            ]
-          }}
+        style={{
+          marginTop: 10,
+          width: 100,
+          fontSize: 18,
+          color: 'white',
+          backgroundColor: 'red',
+          transform: [
+            { rotateX: rotateX },
+          ]
+        }}
       >
         窗外风好大，我没有穿褂。
       </Animated.Text>
       <Animated.Text
-          style={{
-            marginTop: 10,
-            height: 100,
-            lineHeight: 100,
-            fontSize: textSize,
-            color: 'red'
-          }}
+        style={{
+          marginTop: 10,
+          height: 100,
+          lineHeight: 100,
+          fontSize: textSize,
+          color: 'red'
+        }}
       >
         IAMCJ嘿嘿嘿
       </Animated.Text>
       <Animated.View
-          style={{
-            marginTop: 10,
-            width: 100,
-            height: 40,
-            // marginLeft:marginLeft,
-            backgroundColor:'red',
-            transform:[
-              {translateX: this.state.animatedValue.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, 150]
-                })}, // x轴移动
-            ]
-          }}
+        style={{
+          marginTop: 10,
+          width: 100,
+          height: 40,
+          // marginLeft:marginLeft,
+          backgroundColor: 'red',
+          transform: [
+            {
+              translateX: this.state.animatedValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, 150]
+              })
+            }, // x轴移动
+          ]
+        }}
       />
 
     </AppContainer>
@@ -163,9 +169,9 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: 'rgba(200, 230, 255, 0.8)',
-    marginBottom:10,
-    justifyContent:"center",
-    alignSelf:"center",
+    marginBottom: 10,
+    justifyContent: "center",
+    alignSelf: "center",
   },
   button: Platform.select({
     ios: {},
@@ -174,13 +180,13 @@ const styles = StyleSheet.create({
       // Material design blue from https://material.google.com/style/color.html#color-color-palette
       backgroundColor: '#2196F3',
       borderRadius: 2,
-      width:100,
-      height:30,
+      width: 100,
+      height: 30,
     },
-    justifyContent:"center",
-    alignSelf:"center",
+    justifyContent: "center",
+    alignSelf: "center",
   }),
   buttonText: {
-    alignSelf:"center",
+    alignSelf: "center",
   }
 })

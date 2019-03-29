@@ -157,7 +157,7 @@ export default class LCDGesture3 extends Component{
 
 
   render(){
-    return <View style={{flex:1,height:300,backgroundColor:'#c9c9c9'}}
+    return <View style={{flex:1,height:300,backgroundColor:'#c9c9c9',}}
                  {...this._panResponder.panHandlers}
                  onLayout={this._onLayout}
     >

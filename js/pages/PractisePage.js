@@ -10,7 +10,8 @@ import {
 } from 'react-native'
 import {
   AppContainer,
-  Button
+  Button,
+  Utils
 } from '../common'
 
 
@@ -23,6 +24,9 @@ import{
   LCDGesture2,
   LCDGesture3,
   LCDNativeView,
+
+  MarqueeText,
+
 } from '../practises'
 
 /**
@@ -39,9 +43,26 @@ export default class PractisePage extends Component{
 
   render(){
 
-    const MyButton = Button.getButton;
+
     return <AppContainer style={styles.container}>
-         <View style={{height:30,width: '100%',backgroundColor:'red'}}/>
+         {/* <MarqueeText style={{height:30,width: '40%',backgroundColor:'red'}}  text={'sdfgjkqweroit92vajcieuyrpqt92384718dshfjkha'}/> */}
+         <MarqueeText
+                    textList = {[
+                        {label : '1',value : 'item1:一闪一闪亮晶晶，满天都是小星星'},
+                        {label : '2',value : 'item2:两只老虎跑的快'},
+                        {label : '3',value : 'item3:蓝蓝的天上白云飘，白云下面小肥羊儿跑'},
+                    ]}
+                    speed = {20}
+                    width = {Utils.screenwidth}
+                    height = {50}
+                    direction = {'left'}
+                    reverse = {false}
+                    bgContainerStyle = {{backgroundColor : '#FFFF00'}}
+                    textStyle = {{fontSize : 16,color : '#FF0000'}}
+                    onTextClick = {(item) => {
+                        alert(''+JSON.stringify(item));
+                    }}
+                />
      {/*<LCDAnimated/>*/}
      {/*<LCDAnimatedScrollDemo/>*/}
      {/*<LCDAnimatedGesture/>*/}
