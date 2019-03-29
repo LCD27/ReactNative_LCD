@@ -25,7 +25,9 @@ import{
   LCDNativeView,
 } from '../practises'
 
-
+/**
+ * 练习页面
+ */
 
 export default class PractisePage extends Component{
   constructor(props){

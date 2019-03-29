@@ -18,7 +18,9 @@ import {
   AppContainer,
   Button,
 } from '../common'
-
+/**
+ * 收藏页面
+ */
 class FavoritePage extends Component{
 
   _onClick = ()=>{
@@ -29,11 +31,10 @@ class FavoritePage extends Component{
 
 
   render(){
-    const MyButton = Button.getButton;
     console.warn(this.props)
     return <AppContainer style={styles.container}>
     <View style={{backgroundColor:'red',height:30,width:'100%'}}/>
-      <MyButton name={this.props.test} onClick = {this._onClick}/>
+      <Button textName={this.props.test} onClick = {this._onClick}/>
     </AppContainer>
   }
 }

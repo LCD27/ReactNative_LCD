@@ -12,7 +12,7 @@ const data=[
   {
     ttile:'MaterialTopTabNavigator',
     callBack:(index,props)=>{
-      console.warn(index+'  '+JSON.stringify(props))
+      // console.warn(index+'  '+JSON.stringify(props))
       NavigationUtil.navigate('MaterialTopTabNavigator')
       // props && props.naviagtion && props.navigation.navigate('HomePage')
     }

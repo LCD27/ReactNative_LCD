@@ -9,6 +9,9 @@ import {
   AppContainer,
   Button,
 } from '../common'
+/**
+ * 欢迎页面
+ */
 export default class WelcomePage extends Component{
 
   componentDidMount(){
@@ -21,7 +24,7 @@ export default class WelcomePage extends Component{
 
   render(){
     return <AppContainer style={styles.container}>
-      <Button.getButton name={'next'}/>
+      <Button textName={'next'}/>
       <Text style={styles.text}>WelcomePage</Text>
     </AppContainer>
   }

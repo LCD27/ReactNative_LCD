@@ -97,7 +97,7 @@ export default class MyPage extends Component{
     // console.warn(this.props.navigation)
     const MyButton = Button.getButton;
     return <AppContainer style={styles.container}>
-      <MyButton name={'animated'} onClick = {this._onClick}/>
+      <Button textName={'animated'} onClick = {this._onClick}/>
       <Animated.View style={{
         marginTop: 10,
         width: 100,

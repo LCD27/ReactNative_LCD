@@ -41,7 +41,8 @@ const MaterialTopTabNavigator = createMaterialTopTabNavigator({...MaterialTopTab
   defaultNavigationOptions:{
     // header:(<View style={{backgroundColor:'red',height:30,width:100}}></View>),
     tabBarOptions:{
-      style:{backgroundColor:'red',paddingTop:30}
+      style:{backgroundColor:'red',paddingTop:30},
+      upperCaseLabel:false
     }
   }
   // tabBarPosition:'bottom'

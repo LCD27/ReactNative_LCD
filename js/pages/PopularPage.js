@@ -19,34 +19,37 @@ import {
   testAction
 } from '../actions/testAction'
 import NavigationUtil from "../navigators/NavigationUtil";
+/**
+ * 最热页面
+ */
 class PopularPage extends Component{
 
   _onClick = ()=>{
     // this.props.navigation.navigate('MaterialTopTabNavigator')
     this.props.changTest('PopularPage+++++')
   }
-  componentWillReceiveProps(){
-    console.warn('componentWillReceiveProps')
-  }
+  // componentWillReceiveProps(){
+  //   console.warn('componentWillReceiveProps')
+  // }
 
-  componentDidMount(){
-    console.warn('componentDidMount')
-  }
-  componentWillUpdate(){
-    console.warn('componentWillUpdate')
-  }
-  componentDidUpdate(){
-    console.warn('componentDidUpdate')
-  }
+  // componentDidMount(){
+  //   console.warn('componentDidMount')
+  // }
+  // componentWillUpdate(){
+  //   console.warn('componentWillUpdate')
+  // }
+  // componentDidUpdate(){
+  //   console.warn('componentDidUpdate')
+  // }
 
   render(){
-    const MyButton = Button.getButton;
+
     console.warn(this.props)
     if(!NavigationUtil.navigation){
       NavigationUtil.navigation=this.props.navigation
     }
     return <AppContainer style={styles.container}>
-      <MyButton name={this.props.test} onClick = {this._onClick}/>
+      <Button textName={this.props.test} onClick = {this._onClick}/>
       {/*<Text>{this.props.test}</Text>*/}
     </AppContainer>
   }

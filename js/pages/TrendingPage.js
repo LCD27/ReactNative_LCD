@@ -8,6 +8,9 @@ import {
   AppContainer,
     Button
 } from '../common'
+/**
+ * 趋势页面
+ */
 export default class TrendingPage extends Component{
 
   _onClick = ()=>{
@@ -18,7 +21,7 @@ export default class TrendingPage extends Component{
     // console.warn(this.props.navigation)
     const MyButton = Button.getButton
     return <AppContainer style={styles.container}>
-      <MyButton name={'DrawNavigation'} onClick = {this._onClick}/>
+      <Button textName={'DrawNavigation'} onClick = {this._onClick}/>
     </AppContainer>
   }
 }
