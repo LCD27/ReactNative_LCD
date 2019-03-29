@@ -9,7 +9,8 @@ import {
 
 } from 'react-navigation'
 import{
-  Dimensions
+  Dimensions,
+  View
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons' // https://oblador.github.io/react-native-vector-icons/
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -29,23 +30,29 @@ import {
   MaterialTopTabData,
   DrawerData,
   StackData,
-}from '../data'
+}from '../my_data'
 
 
 const MaterialTopTabNavigator = createMaterialTopTabNavigator({...MaterialTopTabData},{
-  initialRouteName:'HomePage',
+  initialRouteName:'FavoritePage',
   swipeEnabled:true,
   animationEnabled:true,
   lazy:true,
+  defaultNavigationOptions:{
+    // header:(<View style={{backgroundColor:'red',height:30,width:100}}></View>),
+    tabBarOptions:{
+      style:{backgroundColor:'red',paddingTop:30}
+    }
+  }
   // tabBarPosition:'bottom'
 })
 
 const BottomTabNavigator = createBottomTabNavigator({...BottomTabData},{
-  initialRouteName:'PractisePage'
+  // initialRouteName:'PractisePage'
 })
 
 
-const DrawerNavigator = createDrawerNavigator(DrawerData,{
+const DrawerNavigator = createDrawerNavigator({...DrawerData},{
   drawerWidth:Dimensions.get('window').width*0.8,
   drawerPosition:'left',
   drawerBackgroundColor:'blue',

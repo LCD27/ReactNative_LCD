@@ -11,7 +11,7 @@ export default class AppContainer extends Component{
   }
 
   render(){
-    return  <SafeAreaView style={this.props.style === undefined ? styles.container : this.props.style}>
+    return  <SafeAreaView style={[styles.container,this.props.style]}>
       {this.props.children}
     </SafeAreaView>
   }
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   top:{
-    marginTop:Platform.OS === 'ios'?20:0
+    marginTop:Platform.OS === 'ios'?0:0
   }
 })

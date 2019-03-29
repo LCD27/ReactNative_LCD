@@ -32,6 +32,7 @@ class FavoritePage extends Component{
     const MyButton = Button.getButton;
     console.warn(this.props)
     return <AppContainer style={styles.container}>
+    <View style={{backgroundColor:'red',height:30,width:'100%'}}/>
       <MyButton name={this.props.test} onClick = {this._onClick}/>
     </AppContainer>
   }
@@ -53,7 +54,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(FavoritePage)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'center',
+    // justifyContent:'center',
     backgroundColor: '#F5FCFF',
   },
 })

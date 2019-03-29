@@ -12,7 +12,7 @@ export default class HomePage extends Component{
   render(){
     // console.warn(this.props.navigation)
       return <AppContainer style={styles.container}>
-        <Text>homepage</Text>
+        <Text>homepadafafasdasfasage</Text>
       </AppContainer>
   }
 }

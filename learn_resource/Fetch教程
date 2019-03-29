@@ -1,3 +1,43 @@
 http://louiszhai.github.io/2016/11/02/fetch/#timeout
 
+网络超时
+var _fetch = (function(fetch){
+  return function(url,options){
+    var abort = null,
+        timeout = 0;
+    var abort_promise = new Promise((resolve, reject)=>{
+      abort = () => {
+        reject('timeout.');
+        console.info('abort done.');
+      };
+    });
+    var promise = Promise.race([
+      fetch(url,options),
+      abort_promise
+    ]);
+    promise.abort = abort;
+    Object.defineProperty(promise, 'timeout',{
+      set: function(ts){
+        if((ts=+ts)){
+          timeout = ts;
+          setTimeout(abort,ts);
+        }
+      },
+      get: function(){
+        return timeout;
+      }
+    });
+    return promise;
+  };
+})(fetch);
 
+然后, 使用如下方法测试新的fetch.
+var p = _fetch('https://www.baidu.com',{mode:'no-cors'});
+p.then(function(res) {
+    console.log('response:', res);
+}, function(e) {
+    console.log('error:', e);
+});
+p.timeout = 1;
+//"abort done."
+//"error: timeout."

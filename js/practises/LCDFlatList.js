@@ -4,7 +4,21 @@ import{
     View,
     Text,
 } from 'react-native'
-const data=[{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"},{a:"132"}]
+import NavigationUtil from '../navigators/NavigationUtil';
+
+// import * as Data from '../my_data'
+
+const data=[
+  {
+    ttile:'MaterialTopTabNavigator',
+    callBack:(index,props)=>{
+      console.warn(index+'  '+JSON.stringify(props))
+      NavigationUtil.navigate('MaterialTopTabNavigator')
+      // props && props.naviagtion && props.navigation.navigate('HomePage')
+    }
+  },
+  
+]
 export default class LCDFlatList extends React.Component{
   // state={
   //   data:data
@@ -19,13 +33,15 @@ export default class LCDFlatList extends React.Component{
   _keyExtractor=(item,index)=>{
     return 'id-'+index
 }
-  _onItemPress = ()=>{
-    console.warn('index:')
+  _onItemPress = index=>{
+    console.warn('index:'+index)
+
+
   }
   _renderItem=info=>{
     if(info){
       return <View style={{width:'100%',height:50,backgroundColor:'#c0c0c0'}}>
-        <Text style={{width:'100%',height:50}} onPress={this._onItemPress}>{info.item.a}</Text>
+        <Text style={{width:'100%',lineHeight:50,textAlign:'center'}} onPress={()=>{info.item.callBack(info.index,this.props)}}>{info.item.ttile}</Text>
       </View>
     }
     return null

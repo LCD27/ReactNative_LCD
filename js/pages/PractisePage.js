@@ -30,9 +30,7 @@ import{
 export default class PractisePage extends Component{
   constructor(props){
     super(props)
-
   }
-
   _onClick=()=>{
 
   }
@@ -41,15 +39,16 @@ export default class PractisePage extends Component{
 
     const MyButton = Button.getButton;
     return <AppContainer style={styles.container}>
+         <View style={{height:30,width: '100%',backgroundColor:'red'}}/>
      {/*<LCDAnimated/>*/}
      {/*<LCDAnimatedScrollDemo/>*/}
      {/*<LCDAnimatedGesture/>*/}
-     {/*<LCDFlatList/>*/}
+     <LCDFlatList/>
      {/*<LCDGesture/>*/}
      {/*<LCDGesture2/>*/}
-     <View style={{height:30,width: '100%',backgroundColor:'red'}}/>
+
      {/*<LCDGesture3/>*/}
-     <LCDNativeView style={{flex:1,backgroundColor:'#dff'}}/>
+     {/* <LCDNativeView style={{flex:1,backgroundColor:'#dff'}}/> */}
     </AppContainer>
   }
 }
